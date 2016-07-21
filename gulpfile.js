@@ -7,9 +7,14 @@ gulp.task('default', ['scripts', 'less', 'css'], function() {
 
 })
 
+function errorHandler(e) {
+    console.log(e.message.toString());
+    this.emit('end');
+}
+
 gulp.task('less', function() {
     return gulp.src('assets/less/app.less')
-        .pipe(less())
+        .pipe(less().on('error', errorHandler))
         .pipe(gulp.dest('app/css/'))
         .pipe(bs.stream());
 });
