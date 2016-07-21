@@ -6724,3 +6724,7 @@ button.close {
     display: none !important;
   }
 }
+.hero {
+  margin: auto;
+  width: 300px;
+}
