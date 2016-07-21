@@ -1,0 +1,21 @@
+{
+  "name": "hello",
+  "homepage": "https://github.com/kennith/hello",
+  "authors": [
+    "Kennith Leung <kennith.leung@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}
