@@ -10,7 +10,11 @@ var quotes = [
 ];
 
 $(function() {
-    // setQuote('.quote', '.author');
+   // setQuote('.quote', '.author');
+   $('#sw-reload').click(function() {
+        console.log('reaload');
+        document.location.reload(true);
+    })
 });
 
 var setQuote = function(quoteEl, authorEl) {
@@ -25,3 +29,4 @@ function getRandomNumber(quoteLength) {
     var max = quoteLength-1;
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
