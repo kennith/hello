@@ -87,3 +87,14 @@ gulp.task('serve', ['default'], function() {
     gulp.watch('assets/js/**/*.js', ['scripts']);
     gulp.watch(watching).on('change', bs.reload);
 })
+
+gulp.task('generate-service-worker', function(callback) {
+    var path = require('path');
+    var swPrecache = require('sw-precache');
+    var rootDir = 'app';
+
+    swPrecache.write(path.join(rootDir, 'service-worker.js'), {
+        staticFileGlobs: [rootDir + '/**/*.{html,js,css}'],
+        stripPrefix: rootDir
+    }, callback);
+})
