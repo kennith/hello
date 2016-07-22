@@ -26,7 +26,8 @@ gulp.task('css', function() {
 });
 
 gulp.task('scripts', function() {
-    return gulp.src('assets/js/**/*.js')
+    var scripts = ['bower_components/jquery/dist/jquery.min.js', 'assets/js/**/*.js']
+    return gulp.src(scripts)
         .pipe(concat('app.js'))
         .pipe(gulp.dest('app/js/'));
 });
