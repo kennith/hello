@@ -71,7 +71,7 @@ gulp.task('scripts', function() {
 });
 
 gulp.task('serve', ['default'], function() {
-    var watching = ['app/*.html', 'app/js/*.js'];
+    var watching = ['app/*.html', 'app/js/*.js', 'app/css/*.css'];
 
     bs.init({
         server: {
@@ -83,18 +83,22 @@ gulp.task('serve', ['default'], function() {
     })
 
     gulp.watch('assets/less/*.less', ['less']);
-    gulp.watch('assets/css/*.css', ['css']);
-    gulp.watch('assets/js/**/*.js', ['scripts']);
-    gulp.watch(watching).on('change', bs.reload);
+    gulp.watch('assets/css/*.css',   ['css']);
+    gulp.watch('assets/js/**/*.js',  ['scripts']);
+    gulp.watch(watching).on('change', function(event) { generateSW(); bs.reload;});
 })
 
-gulp.task('generate-service-worker', function(callback) {
+// Reference: https://github.com/GoogleChrome/sw-precache
+function generateSW() {
     var path = require('path');
     var swPrecache = require('sw-precache');
     var rootDir = 'app';
 
+    console.log('generate sw.');
     swPrecache.write(path.join(rootDir, 'service-worker.js'), {
         staticFileGlobs: [rootDir + '/**/*.{html,js,css}'],
         stripPrefix: rootDir
-    }, callback);
-})
+    });
+}
+
+gulp.task('generate-service-worker', generateSW())
