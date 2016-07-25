@@ -1,11 +1,11 @@
-var gulp   = require('gulp');
-var less   = require('gulp-less');
-var bs     = require('browser-sync');
-var concat = require('gulp-concat');
+var gulp       = require('gulp');
+var less       = require('gulp-less');
+var bs         = require('browser-sync');
+var concat     = require('gulp-concat');
 var sourcemaps = require('gulp-sourcemaps');
-var uglify  = require('gulp-uglify');
-var del = require('del');
-var cleanCSS = require('gulp-clean-css');
+var uglify     = require('gulp-uglify');
+var del        = require('del');
+var cleanCSS   = require('gulp-clean-css');
 
 var dist = 'dist';
 
@@ -64,7 +64,8 @@ gulp.task('css', function() {
 });
 
 gulp.task('scripts', function() {
-    var scripts = ['bower_components/jquery/dist/jquery.min.js', 'assets/js/**/*.js']
+    // only include SW in the build
+    var scripts = ['bower_components/jquery/dist/jquery.min.js', 'assets/js/*.js']
     return gulp.src(scripts)
         .pipe(concat('app.js'))
         .pipe(gulp.dest('app/js/'));
@@ -85,7 +86,7 @@ gulp.task('serve', ['default'], function() {
     gulp.watch('assets/less/*.less', ['less']);
     gulp.watch('assets/css/*.css',   ['css']);
     gulp.watch('assets/js/**/*.js',  ['scripts']);
-    gulp.watch(watching).on('change', function(event) { generateSW(); bs.reload;});
+    gulp.watch(watching).on('change', bs.reload);
 })
 
 // Reference: https://github.com/GoogleChrome/sw-precache
@@ -101,4 +102,4 @@ function generateSW() {
     });
 }
 
-gulp.task('generate-service-worker', generateSW())
+gulp.task('generate-service-worker', function() { generateSW(); })

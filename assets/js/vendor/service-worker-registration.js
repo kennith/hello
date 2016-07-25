@@ -37,6 +37,7 @@ if ('serviceWorker' in navigator) {
               // have been added to the cache.
               // It's the perfect time to display a "New content is available; please refresh."
               // message in the page's interface.
+              $('#sw-reload-banner').show();
               console.log('New or updated content is available.');
             } else {
               // At this point, everything has been precached.
@@ -55,3 +56,4 @@ if ('serviceWorker' in navigator) {
     console.error('Error during service worker registration:', e);
   });
 }
+
