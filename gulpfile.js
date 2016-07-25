@@ -1,11 +1,11 @@
-var gulp   = require('gulp');
-var less   = require('gulp-less');
-var bs     = require('browser-sync');
-var concat = require('gulp-concat');
+var gulp       = require('gulp');
+var less       = require('gulp-less');
+var bs         = require('browser-sync');
+var concat     = require('gulp-concat');
 var sourcemaps = require('gulp-sourcemaps');
-var uglify  = require('gulp-uglify');
-var del = require('del');
-var cleanCSS = require('gulp-clean-css');
+var uglify     = require('gulp-uglify');
+var del        = require('del');
+var cleanCSS   = require('gulp-clean-css');
 
 var dist = 'dist';
 
@@ -64,14 +64,15 @@ gulp.task('css', function() {
 });
 
 gulp.task('scripts', function() {
-    var scripts = ['bower_components/jquery/dist/jquery.min.js', 'assets/js/**/*.js']
+    // only include SW in the build
+    var scripts = ['bower_components/jquery/dist/jquery.min.js', 'assets/js/*.js']
     return gulp.src(scripts)
         .pipe(concat('app.js'))
         .pipe(gulp.dest('app/js/'));
 });
 
 gulp.task('serve', ['default'], function() {
-    var watching = ['app/*.html', 'app/js/*.js'];
+    var watching = ['app/*.html', 'app/js/*.js', 'app/css/*.css'];
 
     bs.init({
         server: {
@@ -83,7 +84,22 @@ gulp.task('serve', ['default'], function() {
     })
 
     gulp.watch('assets/less/*.less', ['less']);
-    gulp.watch('assets/css/*.css', ['css']);
-    gulp.watch('assets/js/**/*.js', ['scripts']);
+    gulp.watch('assets/css/*.css',   ['css']);
+    gulp.watch('assets/js/**/*.js',  ['scripts']);
     gulp.watch(watching).on('change', bs.reload);
 })
+
+// Reference: https://github.com/GoogleChrome/sw-precache
+function generateSW() {
+    var path = require('path');
+    var swPrecache = require('sw-precache');
+    var rootDir = 'app';
+
+    console.log('generate sw.');
+    swPrecache.write(path.join(rootDir, 'service-worker.js'), {
+        staticFileGlobs: [rootDir + '/**/*.{html,js,css}'],
+        stripPrefix: rootDir
+    });
+}
+
+gulp.task('generate-service-worker', function() { generateSW(); })
