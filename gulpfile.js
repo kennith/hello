@@ -98,7 +98,8 @@ function generateSW() {
     console.log('generate sw.');
     swPrecache.write(path.join(rootDir, 'service-worker.js'), {
         staticFileGlobs: [rootDir + '/**/*.{html,js,css}'],
-        stripPrefix: rootDir
+        stripPrefix: rootDir,
+        replacePrefix: '/hello'
     });
 }
 
