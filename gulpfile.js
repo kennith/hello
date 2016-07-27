@@ -7,10 +7,14 @@ var uglify     = require('gulp-uglify');
 var del        = require('del');
 var cleanCSS   = require('gulp-clean-css');
 
-var dist = 'dist';
+// Configuration
+var dist     = 'dist';
+var app      = 'app';
+var scripts  = ['bower_components/jquery/dist/jquery.min.js', 'assets/js/**/*.js'];
+var watching = ['app/*.html', 'app/js/*.js', 'app/css/*.css'];
+var fonts    = ['bower_components/font-awesome/fonts/**'];
 
 gulp.task('dist', ['clean:dist'], function() {
-    var scripts = ['bower_components/jquery/dist/jquery.min.js', 'assets/js/**/*.js']
 
     gulp.src('app/*')
         .pipe(gulp.dest(dist));
@@ -33,6 +37,9 @@ gulp.task('dist', ['clean:dist'], function() {
         .pipe(uglify())
         .pipe(gulp.dest(dist + '/js/'));
 
+    gulp.src(fonts)
+        .pipe(gulp.dest(dist + '/fonts/'));
+
     return true;
         // .pipe(['less:dist', 'scripts:dist', 'css:dist']);
 });
@@ -41,8 +48,7 @@ gulp.task('clean:dist', function() {
     return del(dist);
 })
 
-gulp.task('default', ['scripts', 'less', 'css'], function() {
-
+gulp.task('default', ['scripts', 'less', 'css', 'font'], function() {
 })
 
 function errorHandler(e) {
@@ -63,16 +69,20 @@ gulp.task('css', function() {
         .pipe(gulp.dest('app/css/'));
 });
 
+gulp.task('font', function() {
+    return gulp.src(fonts)
+        .pipe(gulp.dest('app/fonts'));
+})
+
 gulp.task('scripts', function() {
     // only include SW in the build
-    var scripts = ['bower_components/jquery/dist/jquery.min.js', 'assets/js/*.js']
+    var scripts  = ['bower_components/jquery/dist/jquery.min.js', 'assets/js/*.js'];
     return gulp.src(scripts)
         .pipe(concat('app.js'))
         .pipe(gulp.dest('app/js/'));
 });
 
 gulp.task('serve', ['default'], function() {
-    var watching = ['app/*.html', 'app/js/*.js', 'app/css/*.css'];
 
     bs.init({
         server: {
