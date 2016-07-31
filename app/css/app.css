@@ -8950,3 +8950,11 @@ button.close {
     margin-top: 50px;
   }
 }
+.quotes {
+  color: #888888;
+  margin: 30px auto;
+  text-align: center;
+}
+.quotes .author {
+  font-style: italic;
+}
