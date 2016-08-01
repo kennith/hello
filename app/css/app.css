@@ -8947,14 +8947,17 @@ button.close {
 }
 @media (min-width: 767px) {
   .hero {
-    margin-top: 50px;
+    margin-top: 100px;
   }
 }
 .quotes {
   color: #888888;
-  margin: 30px auto;
+  margin: 100px auto;
   text-align: center;
 }
 .quotes .author {
   font-style: italic;
+}
+.app-icons a {
+  color: #aaa;
 }
