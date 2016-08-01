@@ -7,7 +7,7 @@
 
 # THANKS
 
-    <name>
+    Twitter Bootstrap, GitHub, and Google.
 
 # TECHNOLOGY COLOPHON
 
