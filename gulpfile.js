@@ -14,7 +14,7 @@ var scripts  = ['bower_components/jquery/dist/jquery.min.js', 'assets/js/**/*.js
 var watching = ['app/*.html', 'app/js/*.js', 'app/css/*.css'];
 var fonts    = ['bower_components/font-awesome/fonts/**'];
 
-gulp.task('dist', ['clean:dist'], function() {
+gulp.task('dist', ['clean:dist', 'generate-service-worker'], function() {
 
     gulp.src('app/*')
         .pipe(gulp.dest(dist));
