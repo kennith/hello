@@ -8958,6 +8958,10 @@ button.close {
 .quotes .author {
   font-style: italic;
 }
+.app-icons {
+  padding: 15px;
+}
 .app-icons a {
+  padding: 5px;
   color: #aaa;
 }
