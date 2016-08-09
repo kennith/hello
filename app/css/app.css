@@ -8952,10 +8952,12 @@ button.close {
 }
 .quotes {
   color: #888888;
+  width: 600px;
   margin: 100px auto;
   text-align: center;
 }
 .quotes .author {
+  padding: 10px;
   font-style: italic;
 }
 .app-icons {
