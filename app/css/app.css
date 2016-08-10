@@ -8952,9 +8952,13 @@ button.close {
 }
 .quotes {
   color: #888888;
-  width: 600px;
   margin: 100px auto;
   text-align: center;
+}
+@media (min-width: 768px) {
+  .quotes {
+    width: 600px;
+  }
 }
 .quotes .author {
   padding: 10px;
