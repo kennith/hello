@@ -8965,9 +8965,10 @@ button.close {
   font-style: italic;
 }
 .app-icons {
+  margin-top: 20px;
   padding: 15px;
 }
 .app-icons a {
-  padding: 5px;
+  padding: 10px;
   color: #aaa;
 }
