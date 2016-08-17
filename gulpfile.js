@@ -8,7 +8,7 @@ var del        = require('del');
 var cleanCSS   = require('gulp-clean-css');
 
 // Configuration
-var dist     = 'doc';
+var dist     = 'docs';
 var app      = 'app';
 var scripts  = ['bower_components/jquery/dist/jquery.min.js', 'assets/js/**/*.js'];
 var watching = ['app/*.html', 'app/js/*.js', 'app/css/*.css'];
