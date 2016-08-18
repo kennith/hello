@@ -1,4 +1,7 @@
 # hello
+
+[![Build Status](https://travis-ci.org/kennith/hello.svg)](https://travis-ci.org/kennith/hello)
+
 A simple, good looking landing page. 
 
 ## Description
