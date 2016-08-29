@@ -1,0 +1,21 @@
+{
+    "manifest_version": 2,
+    "name": "hello",
+    "version": "1.0.0",
+
+    "default_locale": "en",
+    "description": "A simple, good looking landing page.",
+    "start_url": "index.html",
+    "display": "standalone",
+    "theme_color": "#888",
+    "orientation": "portrait",
+
+    "icons": [
+        {
+            "src": "launcher-icon-3x.png",
+            "sizes": "144x144",
+            "type": "image/png",
+            "density": 3.0
+        }
+    ]
+}
