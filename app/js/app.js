@@ -24,6 +24,10 @@ var quotes = [
     'author': 'Warren Buffet',
     'quote': 'It takes 20 years to build a reputation and five minutes to ruin it. If you think about that, you\'ll do things differently.'
 },
+    {
+        'author': 'Cal Newport',
+        'quote': 'Be so good that they can\'t ignore you.'
+    }
 ];
 
 $(function() {
