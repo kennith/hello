@@ -1,5 +1,5 @@
 <template>
-  <div id="quote-component">
+  <div id="quote-component" class="pt-5">
     <p class="message">{{ quote.message }}</p>
     <p class="author">{{ quote.author }}</p>
   </div>

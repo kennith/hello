@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="container mt-5">
-    <p class="display-4">Hello</p>
-    <p class="text-secondary">Let's build something awesome today.</p>
+    <p class="title">Hello</p>
+    <p class="tag-line text-secondary">Let's build something awesome today.</p>
 
     <linkage></linkage>
     <quote></quote>
@@ -24,5 +24,14 @@ export default {
 #app {
   text-align: center;
   max-width: 480px;
+}
+
+#app > .title {
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+#app > .tag-line {
+  font-size: smaller;
 }
 </style>
