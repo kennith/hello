@@ -49,6 +49,11 @@ export default {
           author: "Warren Buffet",
           message:
             "It takes 20 years to build a reputation and five minutes to ruin it. If you think about that, you'll do things differently."
+        },
+        {
+          author: "Damian Lillard",
+          message:
+            "If you want to look good in front of thousands, you have to outwork thousands in front of nobody."
         }
       ]
     };
