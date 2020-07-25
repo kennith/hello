@@ -1,7 +1,8 @@
 <template>
-  <div id="app" class="container mt-5">
-    <p class="title">Hello</p>
-    <p class="tag-line text-secondary">Let's build something awesome today.</p>
+  <div id="app" class="container mx-auto prose prose-md mt-32">
+    <h1>Hello</h1>
+
+    <p class="lead">Let's build something awesome today.</p>
 
     <linkage></linkage>
     <quote></quote>
@@ -9,29 +10,25 @@
 </template>
 
 <script>
-import Quote from './components/Quote'
-import Linkage from './components/Link'
+import Quote from "./components/Quote";
+import Linkage from "./components/Linkage";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    Quote, Linkage
-  }
-}
+    Quote,
+    Linkage,
+  },
+};
 </script>
+
+<style lang="scss">
+@import "./assets/app.scss";
+</style>
 
 <style>
 #app {
   text-align: center;
   max-width: 480px;
-}
-
-#app > .title {
-  font-size: xx-large;
-  font-weight: bold;
-}
-
-#app > .tag-line {
-  font-size: smaller;
 }
 </style>

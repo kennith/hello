@@ -1,7 +1,7 @@
 <template>
-  <div id="quote-component" class="pt-5">
+  <div id="quote-component" class="text-red-700 pt-5 italic text-xs">
     <p class="message">{{ quote.message }}</p>
-    <p class="author">{{ quote.author }}</p>
+    <p class="author">- {{ quote.author }}</p>
   </div>
 </template>
 
@@ -11,61 +11,57 @@ var _ = require("lodash");
 export default {
   name: "Quote",
   props: {
-    parentMessage: String
+    parentMessage: String,
   },
-  mounted: function() {
+  mounted: function () {
     this.quote = this.randomQuote();
   },
   methods: {
-    randomQuote: function() {
-      return this.quotes[_.random(0, this.quotes.length-1)];
-    }
+    randomQuote: function () {
+      return this.quotes[_.random(0, this.quotes.length - 1)];
+    },
   },
-  data: function() {
+  data: function () {
     return {
       quote: { author: "", message: "" },
       quotes: [
         {
           author: "Steve Jobs",
           message:
-            "Your time is limited. Don’t waste it living someone else’s life."
+            "Your time is limited. Don’t waste it living someone else’s life.",
         },
         {
           author: "Bill Gates",
           message:
-            "Your most unhappy customers are your greatest source of learning."
+            "Your most unhappy customers are your greatest source of learning.",
         },
         {
           author: "Carol S. Dweck",
           message:
-            "Did I win? Did I lose? Those are the wrong questions. The correct question is: Did I make my best effort?"
+            "Did I win? Did I lose? Those are the wrong questions. The correct question is: Did I make my best effort?",
         },
         {
           author: "David Allen",
           message:
-            "Much of the stress that people feel doesn't come from having too much to do. It comes from not finishing what they've started."
+            "Much of the stress that people feel doesn't come from having too much to do. It comes from not finishing what they've started.",
         },
         {
           author: "Warren Buffet",
           message:
-            "It takes 20 years to build a reputation and five minutes to ruin it. If you think about that, you'll do things differently."
+            "It takes 20 years to build a reputation and five minutes to ruin it. If you think about that, you'll do things differently.",
         },
         {
           author: "Damian Lillard",
           message:
-            "If you want to look good in front of thousands, you have to outwork thousands in front of nobody."
-        }
-      ]
+            "If you want to look good in front of thousands, you have to outwork thousands in front of nobody.",
+        },
+      ],
     };
-  }
+  },
 };
 </script>
 
 <style scoped>
 #quote-component {
-    font-size: smaller;
-    font-style: italic;
-    color: grey;
-    text-align: center;
 }
 </style>
