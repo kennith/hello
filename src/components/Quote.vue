@@ -55,6 +55,10 @@ export default {
           message:
             "If you want to look good in front of thousands, you have to outwork thousands in front of nobody.",
         },
+        {
+          author: "Albert Camus",
+          message: "The only way to deal with an unfree world is to become so absolutely free that your very existence is an act of rebellion.",
+        }
       ],
     };
   },
