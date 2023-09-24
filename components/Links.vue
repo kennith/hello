@@ -1,7 +1,7 @@
 <template>
     <div class="flex my-3">
         <div v-for="link in links" class="px-1">
-            <NuxtLink :to="link.url">
+            <NuxtLink :to="link.url" target="_blank">
                 <Icon :name="link.icon" size="3em" color="rgb(113 113 122)" />
             </NuxtLink>
         </div>
