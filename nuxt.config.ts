@@ -2,7 +2,8 @@
 export default defineNuxtConfig({
   ssr: false,
   app: {
-    baseURL: '/hello/'
+    baseURL: '/hello/',
+    buildAssetsDir: '/assets/'
   },
   devtools: { enabled: true },
   modules: [
